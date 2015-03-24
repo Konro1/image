@@ -448,11 +448,11 @@ class Kohana_Image_GD extends Image {
 	 */
 	protected function _do_watermark(Image $watermark, $offset_x, $offset_y, $opacity)
 	{
-		if (empty(Image_GD::$_available_functions[Image_GD::IMAGELAYEREFFECT]))
-		{
-			throw new Kohana_Exception('This method requires :function, which is only available in the bundled version of GD',
-				array(':function' => 'imagelayereffect'));
-		}
+		// if (empty(Image_GD::$_available_functions[Image_GD::IMAGELAYEREFFECT]))
+		// {
+		// 	throw new Kohana_Exception('This method requires :function, which is only available in the bundled version of GD',
+		// 		array(':function' => 'imagelayereffect'));
+		// }
 
 		// Loads image if not yet loaded
 		$this->_load_image();
@@ -475,7 +475,7 @@ class Kohana_Image_GD extends Image {
 			$color = imagecolorallocatealpha($overlay, 127, 127, 127, $opacity);
 
 			// The transparent image will overlay the watermark
-			imagelayereffect($overlay, IMG_EFFECT_OVERLAY);
+			// imagelayereffect($overlay, IMG_EFFECT_OVERLAY);
 
 			// Fill the background with the transparent color
 			imagefilledrectangle($overlay, 0, 0, $width, $height, $color);
